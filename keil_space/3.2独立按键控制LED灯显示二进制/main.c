@@ -17,7 +17,7 @@ void Delay1ms(unsigned int nms)		//@12.000MHz
 void main()
 {
 	unsigned char LEDNumber=0xee;
-	P2 = 0xFF; //1111 1111È«²¿µÆ¹Ø±Õ
+	P2 = 0xFF; //1111 1111
 	while(1)
 	{
 		if(P3_1 == 0)
