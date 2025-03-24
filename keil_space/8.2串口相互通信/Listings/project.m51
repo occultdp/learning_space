@@ -1,0 +1,208 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/24/2025  22:03:22  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\SOFTWARE\DEVELOP\KEIL_V\C51\BIN\BL51.EXE .\Objects\Delay.obj, .\Objects\Timer0.obj, .\Objects\main.obj, .\Objects\UAR
+>> T.obj TO .\Objects\project PRINT (.\Listings\project.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\Delay.obj (DELAY)
+  .\Objects\Timer0.obj (TIMER0)
+  .\Objects\main.obj (MAIN)
+  .\Objects\UART.obj (UART)
+  D:\SOFTWARE\DEVELOP\KEIL_V\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\SOFTWARE\DEVELOP\KEIL_V\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\project (DELAY)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         ?DT?MAIN
+            IDATA   0009H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     001BH     UNIT         ?PR?UART_INIT?UART
+            CODE    001EH     0004H     UNIT         ?C_INITSEG
+                    0022H     0001H                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+            CODE    0026H     008CH     UNIT         ?C_C51STARTUP
+            CODE    00B2H     004AH     UNIT         ?PR?UART_ROUTINE?MAIN
+            CODE    00FCH     0017H     UNIT         ?PR?TIMER0INIT?TIMER0
+            CODE    0113H     0014H     UNIT         ?PR?_DELAY1MS?DELAY
+            CODE    0127H     000CH     UNIT         ?PR?MAIN?MAIN
+            CODE    0133H     0008H     UNIT         ?PR?_UART_SEND?UART
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\project (DELAY)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?PR?UART_ROUTINE?MAIN
+  +--> ?PR?_UART_SEND?UART
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/24/2025  22:03:22  PAGE 2
+
+
+?PR?MAIN?MAIN
+  +--> ?PR?UART_INIT?UART
+  +--> ?PR?_DELAY1MS?DELAY
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\project (DELAY)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0113H         PUBLIC        _Delay1ms
+  -------         PROC          _DELAY1MS
+  D:0006H         SYMBOL        nms
+  -------         DO            
+  D:0005H         SYMBOL        i
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:0113H         LINE#         1
+  C:0113H         LINE#         2
+  C:0113H         LINE#         5
+  C:0117H         LINE#         6
+  C:0117H         LINE#         7
+  C:0119H         LINE#         8
+  C:011BH         LINE#         10
+  C:011BH         LINE#         11
+  C:011DH         LINE#         12
+  C:011FH         LINE#         13
+  C:0124H         LINE#         14
+  C:0126H         LINE#         16
+  -------         ENDPROC       _DELAY1MS
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        TIMER0
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00A8H.7       PUBLIC        EA
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.1       PUBLIC        ET0
+  B:0088H.5       PUBLIC        TF0
+  C:00FCH         PUBLIC        Timer0Init
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:00B8H.1       PUBLIC        PT0
+  B:0088H.4       PUBLIC        TR0
+  -------         PROC          TIMER0INIT
+  C:00FCH         LINE#         8
+  C:00FCH         LINE#         9
+  C:00FCH         LINE#         10
+  C:00FFH         LINE#         11
+  C:0102H         LINE#         12
+  C:0105H         LINE#         13
+  C:0108H         LINE#         14
+  C:010AH         LINE#         15
+  C:010CH         LINE#         16
+  C:010EH         LINE#         17
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/24/2025  22:03:22  PAGE 3
+
+
+  C:0110H         LINE#         18
+  C:0112H         LINE#         19
+  -------         ENDPROC       TIMER0INIT
+  -------         ENDMOD        TIMER0
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:00B2H         PUBLIC        UART_Routine
+  B:0098H.0       PUBLIC        RI
+  C:0127H         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  D:0008H         PUBLIC        p
+  -------         PROC          UART_ROUTINE
+  C:00B2H         LINE#         8
+  C:00CFH         LINE#         10
+  C:00D2H         LINE#         11
+  C:00D2H         LINE#         12
+  C:00D7H         LINE#         13
+  C:00DCH         LINE#         14
+  C:00DEH         LINE#         15
+  C:00E1H         LINE#         16
+  C:00E1H         LINE#         17
+  -------         ENDPROC       UART_ROUTINE
+  -------         PROC          MAIN
+  C:0127H         LINE#         19
+  C:0127H         LINE#         20
+  C:0127H         LINE#         21
+  C:012AH         LINE#         22
+  C:012AH         LINE#         23
+  C:012AH         LINE#         24
+  C:0131H         LINE#         25
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        UART
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00A8H.7       PUBLIC        EA
+  B:00A8H.4       PUBLIC        ES
+  B:0098H.1       PUBLIC        TI
+  C:0133H         PUBLIC        _UART_Send
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+  C:0003H         PUBLIC        UART_Init
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.3       PUBLIC        ET1
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  -------         PROC          UART_INIT
+  C:0003H         LINE#         7
+  C:0003H         LINE#         8
+  C:0003H         LINE#         9
+  C:0006H         LINE#         10
+  C:0009H         LINE#         11
+  C:000CH         LINE#         12
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/24/2025  22:03:22  PAGE 4
+
+
+  C:000FH         LINE#         13
+  C:0012H         LINE#         14
+  C:0015H         LINE#         15
+  C:0017H         LINE#         16
+  C:0019H         LINE#         17
+  C:001BH         LINE#         18
+  C:001DH         LINE#         19
+  -------         ENDPROC       UART_INIT
+  -------         PROC          _UART_SEND
+  D:0007H         SYMBOL        message
+  C:0133H         LINE#         26
+  C:0133H         LINE#         27
+  C:0133H         LINE#         28
+  C:0135H         LINE#         29
+  C:0138H         LINE#         30
+  C:013AH         LINE#         31
+  -------         ENDPROC       _UART_SEND
+  -------         ENDMOD        UART
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER0INIT?TIMER0
+
+Program Size: data=10.0 xdata=0 code=314
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
